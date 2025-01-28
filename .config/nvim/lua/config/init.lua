@@ -1,0 +1,8 @@
+require("config.remap")
+require("config.lazy")
+require("config.set")
+require("plugins.telescope")
+require("plugins.harpoon")
+require("plugins.lsp")
+require("plugins.treesitter")
+require("plugins.undotree")
