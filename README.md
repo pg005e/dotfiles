@@ -4,21 +4,7 @@ At the time of making this version, there are configuration for `bash`, `wezterm
 
 
 
-## Tools
-Get your tools here.
-
-#### Wezterm
-    flatpak install flathub org.wezfurlong.wezterm
-
-#### Neovim
-    sudo pacman -S neovim
-
-#### Tmux
-    sudo pacman -S tmux
-
-
-
-## Requirements
+# Requirements
 Ensure you have the following installed on your system:  
 #### Git
     sudo pacman -S git
@@ -26,9 +12,24 @@ Ensure you have the following installed on your system:
 #### Stow
     sudo pacman -S stow
 
+#### Wezterm
+    flatpak install flathub org.wezfurlong.wezterm
+
+#### Starship
+    sudo pacman -S starship
+
+#### Neovim
+    sudo pacman -S neovim
+
+#### Tmux
+    sudo pacman -S tmux
+
+#### tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
-## Installation
+
+# Installation
 First, clone the dotfiles repo to the `~`/`$HOME` directory.  
 ```
 git clone https://github.com/prayushtwayana/dotfiles.git
