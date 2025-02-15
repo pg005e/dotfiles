@@ -2,7 +2,6 @@
 local wezterm = require("wezterm")
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 
-
 -- This table will hold the configuration.
 local config = {}
 
@@ -22,10 +21,10 @@ config = {
 	tab_bar_at_bottom = true,
 	show_new_tab_button_in_tab_bar = false,
 	window_close_confirmation = "AlwaysPrompt",
-	window_decorations = "RESIZE", -- disable the title bar but enable the resizable border
-	color_scheme = "rose-pine-moon",
+	window_decorations = "NONE", -- disable the title bar but enable the resizable border
+	color_scheme = "rose-pine",
 	font = wezterm.font("JetBrainsMono Nerd Font Mono"),
-	font_size = 18,
+	font_size = 16,
 	detect_password_input = true,
 	tab_and_split_indices_are_zero_based = true,
 	use_fancy_tab_bar = false,

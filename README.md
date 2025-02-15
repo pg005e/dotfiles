@@ -1,5 +1,5 @@
 # Dotfiles
-This is the `goose`'s configuration of dotfiles on his system.
+This is dotfiles configuration of goose's system.
 At the time of making this version, there are configuration for `bash`, `wezterm`, `neovim` and `tmux`.
 
 

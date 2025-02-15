@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- wayland system clipboard
 vim.g.clipboard = {
   name = "wl-clipboard",
   copy = {
@@ -34,6 +35,20 @@ vim.g.clipboard = {
   paste = {
     ["+"] = "wl-paste --no-newline",
     ["*"] = "wl-paste --no-newline",
+  },
+  cache_enabled = true,
+}
+
+-- xclip system clipboard
+vim.g.clipboard = {
+  name = "xclip",
+  copy = {
+    ["+"] = "xclip -selection clipboard",
+    ["*"] = "xclip -selection clipboard",
+  },
+  paste = {
+    ["+"] = "xclip -selection clipboard -o",
+    ["*"] = "xclip -selection primary -o",
   },
   cache_enabled = true,
 }
