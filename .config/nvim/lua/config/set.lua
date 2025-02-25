@@ -40,16 +40,17 @@ vim.g.clipboard = {
 }
 
 -- xclip system clipboard
-vim.g.clipboard = {
-  name = "xclip",
-  copy = {
-    ["+"] = "xclip -selection clipboard",
-    ["*"] = "xclip -selection clipboard",
-  },
-  paste = {
-    ["+"] = "xclip -selection clipboard -o",
-    ["*"] = "xclip -selection primary -o",
-  },
-  cache_enabled = true,
-}
+-- vim.g.clipboard = {
+--   name = "xclip",
+--   copy = {
+--     ["+"] = "xclip -selection clipboard",
+--     ["*"] = "xclip -selection clipboard",
+--   },
+--   paste = {
+--     ["+"] = "xclip -selection clipboard -o",
+--     ["*"] = "xclip -selection primary -o",
+--   },
+--   cache_enabled = true,
+-- }
+-- }
 

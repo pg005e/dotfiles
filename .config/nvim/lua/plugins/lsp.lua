@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd('lspattach', {
 -- mason
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "bashls", "clangd", "pylsp", "marksman", "ts_ls", "eslint" },
+  ensure_installed = { "lua_ls", "bashls", "clangd", "marksman", "ts_ls", "eslint", "prismals" },
   automatic_installation = false,
 })
 
@@ -46,18 +46,19 @@ require('lspconfig').ts_ls.setup({})
 require('lspconfig').eslint.setup({})
 require('lspconfig').clangd.setup({})
 require('lspconfig').marksman.setup({})
-require('lspconfig').pylsp.setup {
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = { 'W391' },
-          maxLineLength = 100
-        }
-      }
-    }
-  }
-}
+require('lspconfig').prismals.setup({})
+-- require('lspconfig').pylsp.setup {
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           ignore = { 'W391' },
+--           maxLineLength = 100
+--         }
+--       }
+--     }
+--   }
+-- }
 
 
 local cmp = require('cmp')
