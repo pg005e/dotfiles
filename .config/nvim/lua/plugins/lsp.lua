@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('lspattach', {
     local opts = { buffer = event.buf }
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>vsplit | lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
     vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
@@ -35,7 +35,16 @@ vim.api.nvim_create_autocmd('lspattach', {
 -- mason
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "bashls", "clangd", "marksman", "ts_ls", "eslint", "prismals" },
+  ensure_installed = {
+    "lua_ls",
+    "bashls",
+    "clangd",
+    "marksman",
+    "ts_ls",
+    -- "eslint",
+    "docker_compose_language_service",
+    "dockerls",
+  },
   automatic_installation = false,
 })
 
@@ -43,10 +52,11 @@ require("mason-lspconfig").setup({
 require('lspconfig').lua_ls.setup({})
 require('lspconfig').bashls.setup({})
 require('lspconfig').ts_ls.setup({})
-require('lspconfig').eslint.setup({})
+-- require('lspconfig').eslint.setup({})
 require('lspconfig').clangd.setup({})
 require('lspconfig').marksman.setup({})
-require('lspconfig').prismals.setup({})
+require('lspconfig').docker_compose_language_service.setup({})
+require('lspconfig').dockerls.setup({})
 -- require('lspconfig').pylsp.setup {
 --   settings = {
 --     pylsp = {

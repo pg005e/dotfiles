@@ -10,6 +10,7 @@ keymap.set("c", "<C-H>", "<C-w>")
 keymap.set("n", "<leader>pw", vim.cmd.Ex)
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
 keymap.set("n", "<leader>r", vim.cmd.registers)
+keymap.set("n", "<leader>m", vim.cmd.marks)
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
