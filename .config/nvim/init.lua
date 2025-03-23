@@ -1,7 +1,7 @@
 require("config")
 
-print("welcome back goose 🪿")
-print("------------------------------------------")
+-- print("welcome back goose 🪿")
+-- print("------------------------------------------")
 
 -- make the colorscheme transparent
 require("rose-pine").setup({

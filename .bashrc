@@ -129,6 +129,9 @@ export EDITOR="nvim"
 # starship as prompt
 eval "$(starship init bash)"
 
+# fzf
+alias pf="fzf --preview 'cat {}' --color" 
+alias ef='nvim "$(pf)"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
