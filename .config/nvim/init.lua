@@ -14,7 +14,7 @@ require("rose-pine").setup({
   disable_italics = false,
 })
 
-vim.cmd.colorscheme "rose-pine"
+vim.cmd.colorscheme "rose-pine-moon"
 vim.g.netrw_bufsettings = 'noma nomod nobl nowrap ro'
-vim.o.cursorline = true
+-- vim.o.cursorline = true
 vim.o.termguicolors = true

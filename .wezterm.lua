@@ -15,21 +15,21 @@ local opacity_toggle = false
 -- general configurations
 config = {
 	automatically_reload_config = true,
-  -- default_prog = { "tmux" },
-  -- hide_tab_bar_if_only_one_tab = true,
 	enable_tab_bar = true,
 	tab_bar_at_bottom = true,
 	show_new_tab_button_in_tab_bar = false,
 	window_close_confirmation = "AlwaysPrompt",
 	window_decorations = "RESIZE", -- disable the title bar but enable the resizable border
-	color_scheme = "Rosé Pine Moon (Gogh)",
+	color_scheme = "Tomorrow (dark) (terminal.sexy)",
+	-- color_scheme = "tender (base16)",
+	-- color_scheme = "rose-pine",
 	font = wezterm.font("JetBrainsMono Nerd Font Mono"),
 	font_size = 16,
 	detect_password_input = true,
 	tab_and_split_indices_are_zero_based = true,
 	use_fancy_tab_bar = false,
   tab_max_width = 20,
-	window_padding = { left = 5, right = 3, top = 3, bottom = 0 },
+	window_padding = { left = 1, right = 1, top = 1, bottom = 0 },
 }
 
 -- text on right-most side of tab line (workspace name)

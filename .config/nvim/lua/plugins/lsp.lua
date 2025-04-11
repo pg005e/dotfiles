@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd('lspattach', {
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>vsplit | lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gh', '<cmd>split | lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
     vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
@@ -57,19 +58,6 @@ require('lspconfig').clangd.setup({})
 require('lspconfig').marksman.setup({})
 require('lspconfig').docker_compose_language_service.setup({})
 require('lspconfig').dockerls.setup({})
--- require('lspconfig').pylsp.setup {
---   settings = {
---     pylsp = {
---       plugins = {
---         pycodestyle = {
---           ignore = { 'W391' },
---           maxLineLength = 100
---         }
---       }
---     }
---   }
--- }
-
 
 local cmp = require('cmp')
 cmp.setup({
