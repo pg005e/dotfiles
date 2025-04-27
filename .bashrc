@@ -129,10 +129,8 @@ export EDITOR="nvim"
 # starship as prompt
 eval "$(starship init bash)"
 
-# fzf
-alias pf="fzf --preview 'cat {}' --color" 
-alias ef='nvim "$(pf)"'
 
+# nvm completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -145,3 +143,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# fzf shell integration
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

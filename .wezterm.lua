@@ -107,7 +107,7 @@ config.keys = {
 	{ key = "/", mods = "CTRL", action = act.ShowTabNavigator },
 
   -- new tab
-	{ key = "t", mods = "CTRL", action = act.SpawnTab 'CurrentPaneDomain' },
+	{ key = "n", mods = "LEADER", action = act.SpawnTab 'CurrentPaneDomain' },
 
   -- tab navigation
   { key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },

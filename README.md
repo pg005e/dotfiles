@@ -27,6 +27,9 @@ Ensure you have the following installed on your system:
 #### tpm
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+#### fzf
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+
 
 
 # Installation
