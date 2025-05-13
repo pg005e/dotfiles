@@ -118,7 +118,7 @@ function cl() {
 }
 
 # custom alias
-alias ll="ls -la"
+alias ll="ls -lah"
 alias rm="rm -v"
 alias cl='function _cd() { builtin cd "$1" && ls; }; _cd'
 alias wezterm='flatpak run org.wezfurlong.wezterm'

@@ -1,6 +1,5 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 
 -- This table will hold the configuration.
 local config = {}
@@ -54,7 +53,7 @@ config.unix_domains = {
 
 -- map the leader key
 config.leader = {
-  key = "b",
+  key = "0",
   mods = "CTRL",
   timeout_milliseconds = 1000,
 }

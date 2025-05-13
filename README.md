@@ -25,7 +25,8 @@ Ensure you have the following installed on your system:
     sudo pacman -S tmux
 
 #### tpm
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+For tmux workflow, install tpm first before cloning this repo.
+    `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
 #### fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
@@ -35,7 +36,7 @@ Ensure you have the following installed on your system:
 # Installation
 First, clone the dotfiles repo to the `~`/`$HOME` directory.  
 ```
-git clone https://github.com/prayushtwayana/dotfiles.git
+git clone https://github.com/prayushtwayana/dotfiles.git ~/.dotfiles
 ```
 
 Then use GNU stow to create the symlinks to the dotfiles in your home directory.

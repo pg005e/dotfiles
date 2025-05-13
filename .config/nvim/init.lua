@@ -5,12 +5,12 @@ require("config")
 
 -- make the colorscheme transparent
 require("rose-pine").setup({
-  variant = "auto", -- Choose between 'main', 'moon', or 'dawn'
+  variant = "auto",                 -- Choose between 'main', 'moon', or 'dawn'
   dark_variant = "main",
-  disable_background = true, -- Makes the background transparent
+  disable_background = true,        -- Makes the background transparent
   disable_float_background = false, -- Makes floating windows transparent
   bold_vert_split = false,
-  dim_nc_background = true, -- Do not dim non-current window backgrounds
+  dim_nc_background = true,         -- Do not dim non-current window backgrounds
   disable_italics = false,
 })
 
