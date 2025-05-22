@@ -146,3 +146,6 @@ esac
 
 # fzf shell integration
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# terminal colors
+export TERM="xterm-256color"
