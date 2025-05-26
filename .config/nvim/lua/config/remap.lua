@@ -12,6 +12,8 @@ keymap.set("n", "<leader>f", vim.lsp.buf.format)
 keymap.set("n", "<leader>r", vim.cmd.registers)
 keymap.set("n", "<leader>m", vim.cmd.marks)
 
+keymap.set("n", "<C-L>", "<C-I>")
+
 keymap.set("n", "<Tab>o", "<C-w>o")
 keymap.set("n", "<Tab>=", "<C-w>=")
 keymap.set("n", "<Tab>q", "<C-w>q")

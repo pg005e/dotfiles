@@ -35,19 +35,19 @@ vim.api.nvim_create_autocmd('lspattach', {
 
 -- mason
 require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "lua_ls",
-    "bashls",
-    "clangd",
-    "marksman",
-    "ts_ls",
-    -- "eslint",
-    "docker_compose_language_service",
-    "dockerls",
-  },
-  automatic_installation = false,
-})
+-- require("mason-lspconfig").setup({
+--   ensure_installed = {
+--     "lua_ls",
+--     "bashls",
+--     "clangd",
+--     "marksman",
+--     "ts_ls",
+--     -- "eslint",
+--     "docker_compose_language_service",
+--     "dockerls",
+--   },
+--   automatic_installation = false,
+-- })
 
 -- languge servers
 require('lspconfig').lua_ls.setup({})
