@@ -1,6 +1,5 @@
 # Dotfiles
-This is dotfiles configuration of goose's system.
-At the time of making this version, there are configuration for `bash`, `wezterm`, `neovim` and `tmux`.
+This is a collection of all my dotfiles configuration for `bash`, `wezterm`, `neovim`, `fzf` and `tmux`.
 
 
 

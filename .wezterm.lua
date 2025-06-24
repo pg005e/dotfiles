@@ -14,7 +14,7 @@ local opacity_toggle = false
 -- general configurations
 config = {
 	automatically_reload_config = true,
-	enable_tab_bar = true,
+	enable_tab_bar = false,
 	tab_bar_at_bottom = true,
 	show_new_tab_button_in_tab_bar = false,
 	window_close_confirmation = "AlwaysPrompt",
@@ -26,8 +26,8 @@ config = {
 	font_size = 16,
 	detect_password_input = true,
 	tab_and_split_indices_are_zero_based = true,
-	use_fancy_tab_bar = false,
-  tab_max_width = 20,
+	-- use_fancy_tab_bar = false,
+  -- tab_max_width = 8,
 	window_padding = { left = 1, right = 1, top = 1, bottom = 0 },
 }
 
