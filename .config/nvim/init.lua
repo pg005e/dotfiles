@@ -18,3 +18,4 @@ vim.cmd.colorscheme "rose-pine"
 vim.g.netrw_bufsettings = 'noma nomod nobl nowrap ro'
 -- vim.o.cursorline = true
 vim.o.termguicolors = true
+vim.g.netrw_banner = 0

@@ -113,15 +113,20 @@ shopt -s expand_aliases
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
-function cl() {
-	cd "$@" && ls
+hidetitlebar() {
+  user=$(whoami)
+  host=$(hostname)
+
+  if [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    win_id=$(wmctrl -l | grep "$user@$host" | awk '{print $1}')
+    xprop -id $win_id -format _MOTIF_WM_HINTS 32c -set _MOTIF_WM_HINTS 2
+  fi
 }
 
 # custom alias
 alias ll="ls -lah"
 alias rm="rm -v"
-alias cl='function _cd() { builtin cd "$1" && ls; }; _cd'
-alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias wezterm="flatpak run org.wezfurlong.wezterm "
 
 # defaults
 export EDITOR="nvim"
