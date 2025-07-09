@@ -1,3 +1,10 @@
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function (args)
+    vim.wo.cursorline = false
+  end
+})
+
 vim.opt.nu = true
 vim.opt.rnu = true
 
