@@ -32,22 +32,21 @@ vim.api.nvim_create_autocmd('lspattach', {
   end,
 })
 
-
 -- mason
 require("mason").setup()
--- require("mason-lspconfig").setup({
---   ensure_installed = {
---     "lua_ls",
---     "bashls",
---     "clangd",
---     "marksman",
---     "ts_ls",
---     -- "eslint",
---     "docker_compose_language_service",
---     "dockerls",
---   },
---   automatic_installation = false,
--- })
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "lua_ls",
+    "bashls",
+    "clangd",
+    "marksman",
+    "ts_ls",
+    -- "eslint",
+    "docker_compose_language_service",
+    "dockerls",
+  },
+  automatic_installation = false,
+})
 
 -- languge servers
 require('lspconfig').lua_ls.setup({})
@@ -59,29 +58,28 @@ require('lspconfig').marksman.setup({})
 require('lspconfig').docker_compose_language_service.setup({})
 require('lspconfig').dockerls.setup({})
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local capabilities = cmp_nvim_lsp.default_capabilities()
-require('lspconfig').rust_analyzer.setup({
-  capabilities = capabilities,
-  cmd = { "rust-analyzer" }, -- uses system rust-analyzer
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = { allFeatures = true },
-      checkOnSave = true,
-    },
-  },
+require("lspconfig").rust_analyzer.setup({
+  -- cmd = { "rust_analyzer" },  -- use light (from mason)
+  cmd = { "/usr/bin/rust-analyzer" },  -- use pacman-installed binary (install in rust toolchain)
+  on_attach = function(client, bufnr)
+    print("rust-analyzer attached")
+  end,
 })
+
 
 local pid = vim.fn.getpid()
 require("lspconfig").omnisharp.setup({
   cmd = {
-    vim.fn.expand("~/.local/share/nvim/mason/packages/omnisharp/OmniSharp"),
+    vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp", -- capital O
     "--languageserver",
     "--hostPID",
     tostring(pid),
   },
   enable_roslyn_analyzers = true,
   organize_imports_on_format = true,
+  on_attach = function(client, bufnr)
+    print("omnisharp attached to buffer " .. bufnr)
+  end,
 })
 
 local cmp = require('cmp')
