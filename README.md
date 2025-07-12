@@ -24,7 +24,7 @@ Ensure you have the following installed on your system:
     sudo pacman -S tmux
 
 #### tpm
-For tmux workflow, install tpm first before cloning this repo.
+After installing `tpm`, you would need to install the plugins with `Prefix` + `I`.
     `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
 #### fzf
@@ -43,3 +43,6 @@ Then use GNU stow to create the symlinks to the dotfiles in your home directory.
 cd dotfiles/
 stow .
 ```
+
+Or you can run the script `setup.sh` inside `scripts/` as
+`sh setup.sh <distro>`, where `<distro>` is either `arch` or `debian`, that's what i use.
