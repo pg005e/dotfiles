@@ -158,3 +158,4 @@ esac
 
 # terminal colors
 export TERM="xterm-256color"
+. "$HOME/.cargo/env"

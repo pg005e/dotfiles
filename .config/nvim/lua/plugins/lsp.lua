@@ -59,6 +59,31 @@ require('lspconfig').marksman.setup({})
 require('lspconfig').docker_compose_language_service.setup({})
 require('lspconfig').dockerls.setup({})
 
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local capabilities = cmp_nvim_lsp.default_capabilities()
+require('lspconfig').rust_analyzer.setup({
+  capabilities = capabilities,
+  cmd = { "rust-analyzer" }, -- uses system rust-analyzer
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = { allFeatures = true },
+      checkOnSave = true,
+    },
+  },
+})
+
+local pid = vim.fn.getpid()
+require("lspconfig").omnisharp.setup({
+  cmd = {
+    vim.fn.expand("~/.local/share/nvim/mason/packages/omnisharp/OmniSharp"),
+    "--languageserver",
+    "--hostPID",
+    tostring(pid),
+  },
+  enable_roslyn_analyzers = true,
+  organize_imports_on_format = true,
+})
+
 local cmp = require('cmp')
 cmp.setup({
   sources = {
