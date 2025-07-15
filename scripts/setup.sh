@@ -17,10 +17,6 @@ case "$1" in
     ;;
 esac
 
-if [ "$pkg_mngr" == "apt" ]; then
-  sudo apt install git && sudo apt install stow && sudo apt install starship
-fi
-
 if [ "$pkg_mngr" == "pacman" ]; then
   # install from package repositories
   sudo pacman -S git stow neovim starship flatpak tmux
