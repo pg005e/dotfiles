@@ -41,6 +41,7 @@ require("mason-lspconfig").setup({
     "clangd",
     "marksman",
     "ts_ls",
+    "yamlls",
     -- "eslint",
     "docker_compose_language_service",
     "dockerls",
@@ -57,6 +58,7 @@ require('lspconfig').clangd.setup({})
 require('lspconfig').marksman.setup({})
 require('lspconfig').docker_compose_language_service.setup({})
 require('lspconfig').dockerls.setup({})
+require('lspconfig').yamlls.setup({})
 
 require("lspconfig").rust_analyzer.setup({
   -- cmd = { "rust_analyzer" },  -- use light (from mason)
