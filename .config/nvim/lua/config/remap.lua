@@ -2,6 +2,18 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+keymap.set("n", "<leader>b", function()
+  print(vim.fn.bufnr('%'))
+end, { desc = "Print current buffer number" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function()
+    local opts = { buffer = true, noremap = true, silent = true }
+    keymap.set("n", "<C-L>", "<C-I>")
+  end,
+})
+
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("c", "<C-BS>", "<C-w>")
 keymap.set("i", "<C-H>", "<C-w>")
@@ -11,8 +23,6 @@ keymap.set("n", "<leader>pw", vim.cmd.Ex)
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
 keymap.set("n", "<leader>r", vim.cmd.registers)
 keymap.set("n", "<leader>m", vim.cmd.marks)
-
-keymap.set("n", "<C-L>", "<C-I>")
 
 keymap.set("i", "<C-c>", "<Esc>")
 
