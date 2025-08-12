@@ -131,6 +131,8 @@ hidetitlebar() {
 alias ll="ls -lah"
 alias rm="rm -v"
 alias wezterm="flatpak run org.wezfurlong.wezterm "
+alias tma="tmux a"
+alias tm="tmux"
 
 # defaults
 export EDITOR="nvim"
@@ -159,3 +161,6 @@ esac
 # terminal colors
 export TERM="xterm-256color"
 . "$HOME/.cargo/env"
+
+# opencode
+export PATH=/home/prayush/.opencode/bin:$PATH
