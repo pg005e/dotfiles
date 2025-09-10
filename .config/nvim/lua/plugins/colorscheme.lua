@@ -10,8 +10,6 @@ require("rose-pine").setup({
     migrations = true,        -- Handle deprecated options automatically
   },
 
-  disable_float_background = false, -- Makes floating windows transparent
-
   styles = {
     bold = true,
     italic = true,
@@ -57,13 +55,13 @@ require("rose-pine").setup({
     -- },
   },
 
-  -- NOTE: Highlight groups are extended (merged) by default. Disable this
-  -- per group via `inherit = false`
   highlight_groups = {
     -- Comment = { fg = "foam" },
+    -- VertSplit = { fg = "muted", bg = "rose" },
     StatusLine = { fg = "#B46B63" },
-    -- VertSplit = { fg = "muted", bg = "muted" },
-    -- Visual = { fg = "base", bg = "text", inherit = false },
+    Visual = { fg = "surface", bg = "gold", inherit = false },
+    -- Normal = { bg = "#191712" },
+    NormalNC = { bg = "#191712" }
   },
 
   before_highlight = function(group, highlight, palette)

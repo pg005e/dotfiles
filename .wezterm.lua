@@ -5,7 +5,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 if wezterm.config_builder then
-	config = wezterm.config_builder()
+  config = wezterm.config_builder()
 end
 
 local act = wezterm.action
@@ -13,27 +13,27 @@ local opacity_toggle = false
 
 -- general configurations
 config = {
-	automatically_reload_config = true,
-	enable_tab_bar = false,
-	tab_bar_at_bottom = true,
-	show_new_tab_button_in_tab_bar = false,
-	window_close_confirmation = "AlwaysPrompt",
-	window_decorations = "RESIZE", -- disable the title bar but enable the resizable border
-	color_scheme = "Tomorrow (dark) (terminal.sexy)",
-	-- color_scheme = "tender (base16)",
-	-- color_scheme = "rose-pine",
-	font = wezterm.font("JetBrainsMono Nerd Font Mono"),
-	font_size = 20,
-	detect_password_input = true,
-	tab_and_split_indices_are_zero_based = true,
-	-- use_fancy_tab_bar = false,
+  automatically_reload_config = true,
+  enable_tab_bar = false,
+  -- tab_bar_at_bottom = true,
+  show_new_tab_button_in_tab_bar = false,
+  window_close_confirmation = "AlwaysPrompt",
+  window_decorations = "RESIZE", -- disable the title bar but enable the resizable border
+  color_scheme = "Tomorrow (dark) (terminal.sexy)",
+  -- color_scheme = "tender (base16)",
+  -- color_scheme = "rose-pine",
+  font = wezterm.font("JetBrainsMono Nerd Font Mono"),
+  font_size = 20,
+  detect_password_input = true,
+  tab_and_split_indices_are_zero_based = true,
+  -- use_fancy_tab_bar = false,
   -- tab_max_width = 8,
-	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
+  window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 }
 
 -- text on right-most side of tab line (workspace name)
 wezterm.on("update-right-status", function(window, pane)
-	window:set_right_status(window:active_workspace())
+  window:set_right_status(window:active_workspace())
 end)
 
 -- toggle opacity
@@ -60,38 +60,38 @@ config.leader = {
 
 -- mapping custom keybindings for window pane navigation
 config.keys = {
-	------------------------------------------------ PANE SPLITING ------------------------------------------------
-	-- -- This will create a new split and run your default program inside it
-	-- { key = "'", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	-- { key = ";", mods = "LEADER", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	--
-	-- ------------------------------------------------ PANE NAVIGATION ------------------------------------------------
-	-- -- adjust pane size
-	-- { key = "h", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 1 }) },
-	-- { key = "j", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 1 }) },
-	-- { key = "k", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 1 }) },
-	-- { key = "l", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 1 }) },
-	--
-	-- -- select active pane
-	-- { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
-	-- { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
-	-- { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
-	-- { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-	--
-	--  -- pane zoom
-	-- { key = "0", mods = "ALT", action = act.TogglePaneZoomState },
-	--
-	------------------------------------------------ TAB CONFIGURATION ------------------------------------------------
-	-- Rename the current tab
+  ------------------------------------------------ PANE SPLITING ------------------------------------------------
+  -- -- This will create a new split and run your default program inside it
+  -- { key = "'", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+  -- { key = ";", mods = "LEADER", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  --
+  -- ------------------------------------------------ PANE NAVIGATION ------------------------------------------------
+  -- -- adjust pane size
+  -- { key = "h", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 1 }) },
+  -- { key = "j", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 1 }) },
+  -- { key = "k", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 1 }) },
+  -- { key = "l", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 1 }) },
+  --
+  -- -- select active pane
+  -- { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+  -- { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
+  -- { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
+  -- { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
+  --
+  --  -- pane zoom
+  -- { key = "0", mods = "ALT", action = act.TogglePaneZoomState },
+  --
+  ------------------------------------------------ TAB CONFIGURATION ------------------------------------------------
+  -- Rename the current tab
   {
     key = ',',
     mods = 'LEADER',
     action = act.PromptInputLine {
-        description = wezterm.format({
-          { Attribute = { Intensity = "Bold" } },
-          { Foreground = { AnsiColor = "Fuchsia"} },
-          { Text = "Enter new name for tab: " },
-        }),
+      description = wezterm.format({
+        { Attribute = { Intensity = "Bold" } },
+        { Foreground = { AnsiColor = "Fuchsia" } },
+        { Text = "Enter new name for tab: " },
+      }),
       action = wezterm.action_callback(
         function(window, pane, line)
           if line then
@@ -103,20 +103,25 @@ config.keys = {
   },
 
   -- show tab navigator
-	{ key = "/", mods = "CTRL", action = act.ShowTabNavigator },
+  { key = "/", mods = "CTRL",         action = act.ShowTabNavigator },
 
   -- new tab
-	{ key = "n", mods = "LEADER", action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = "n", mods = "LEADER",       action = act.SpawnTab 'CurrentPaneDomain' },
 
   -- tab navigation
-  { key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },
-  { key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+  { key = "]", mods = "LEADER",       action = act.ActivateTabRelative(1) },
+  { key = "[", mods = "LEADER",       action = act.ActivateTabRelative(-1) },
 
-	------------------------------------------------ (GLOBAL) COPY MODE ------------------------------------------------
-	{ key = "[", mods = "CTRL", action = act.ActivateCopyMode },
+  ------------------------------------------------ REBIND ------------------------------------------------
+  -- Command Palette
+  { key = "P", mods = "CTRL | SHIFT", action = act.DisableDefaultAssignment }, -- unbind
+  { key = "1", mods = "CTRL",         action = act.ActivateCommandPalette },   -- unbind
 
-	------------------------------------------------ TOGGLE BACKGROUND OPACITY ------------------------------------------------
-	{ key = "o", mods = "LEADER", action = act.EmitEvent 'toggle-opacity' },
+  -- Copy Mode
+  { key = "[", mods = "CTRL",         action = act.ActivateCopyMode }, -- unbind
+
+  ------------------------------------------------ TOGGLE BACKGROUND OPACITY ------------------------------------------------
+  { key = "o", mods = "LEADER",       action = act.EmitEvent 'toggle-opacity' },
 }
 
 -- and finally, return the configuration to wezterm

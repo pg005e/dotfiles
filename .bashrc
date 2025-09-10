@@ -133,6 +133,7 @@ alias rm="rm -v"
 alias wezterm="flatpak run org.wezfurlong.wezterm "
 alias tma="tmux a"
 alias tm="tmux"
+alias ox="sudo oxker"
 
 # defaults
 export EDITOR="nvim"
