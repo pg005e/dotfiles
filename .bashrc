@@ -165,3 +165,9 @@ export TERM="xterm-256color"
 
 # opencode
 export PATH=/home/prayush/.opencode/bin:$PATH
+
+
+# Enable bash-completion if available
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
