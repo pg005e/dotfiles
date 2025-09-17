@@ -45,6 +45,7 @@ require("mason-lspconfig").setup({
     -- "eslint",
     "docker_compose_language_service",
     "dockerls",
+    "gopls"
   },
   automatic_installation = false,
 })
@@ -62,11 +63,13 @@ require('lspconfig').yamlls.setup({})
 
 require("lspconfig").rust_analyzer.setup({
   -- cmd = { "rust_analyzer" },  -- use light (from mason)
-  cmd = { "/usr/bin/rust-analyzer" },  -- use pacman-installed binary (install in rust toolchain)
+  cmd = { "/usr/bin/rust-analyzer" }, -- use pacman-installed binary (install in rust toolchain)
   on_attach = function(client, bufnr)
     print("rust-analyzer attached")
   end,
 })
+
+require("lspconfig").gopls.setup({})
 
 
 local pid = vim.fn.getpid()

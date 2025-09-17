@@ -165,3 +165,6 @@ export TERM="xterm-256color"
 
 # opencode
 export PATH=/home/prayush/.opencode/bin:$PATH
+
+# golang
+export PATH=$PATH:/usr/local/go/bin
