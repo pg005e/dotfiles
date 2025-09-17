@@ -172,3 +172,4 @@ export PATH=$PATH:/usr/local/go/bin
 # Enable bash-completion if available
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+fi
