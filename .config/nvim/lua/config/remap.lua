@@ -26,6 +26,7 @@ keymap.set("n", "<leader>m", vim.cmd.marks)
 
 keymap.set("i", "<C-c>", "<Esc>")
 
+keymap.set("n", "<C-w>e", "<C-w>|<C-w>_")
 keymap.set("n", "<Tab>o", "<C-w>o")
 keymap.set("n", "<Tab>=", "<C-w>=")
 keymap.set("n", "<Tab>q", "<C-w>q")

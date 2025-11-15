@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup Lazy.nvim
 require("lazy").setup({
   -- colorscheme
-  { "rose-pine/neovim", name = "rose-pine", opts = {transparent = true} },
+  { "rose-pine/neovim",        name = "rose-pine", opts = { transparent = true } },
   { "LuRsT/austere.vim" },
   { "kdheepak/monochrome.nvim" },
 
@@ -108,11 +108,6 @@ require("lazy").setup({
     }
   },
   { 'hrsh7th/nvim-cmp' },
-
-  -------------------------------------------------------------------------------------
-
-  -- golf
-  { 'vuciv/golf' },
 
   -------------------------------------------------------------------------------------
 

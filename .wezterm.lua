@@ -23,12 +23,13 @@ config = {
   -- color_scheme = "tender (base16)",
   -- color_scheme = "rose-pine",
   font = wezterm.font("JetBrainsMono Nerd Font Mono"),
-  font_size = 20,
+  font_size = 28,
   detect_password_input = true,
   tab_and_split_indices_are_zero_based = true,
   -- use_fancy_tab_bar = false,
   -- tab_max_width = 8,
   window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
+  adjust_window_size_when_changing_font_size = true,
 }
 
 -- text on right-most side of tab line (workspace name)

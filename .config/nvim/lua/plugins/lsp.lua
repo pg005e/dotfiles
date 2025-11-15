@@ -11,8 +11,7 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
--- this is where you enable features that only work
--- if there is a language server active in the file
+-- keymaps for lsp features
 vim.api.nvim_create_autocmd('lspattach', {
   desc = 'lsp actions',
   callback = function(event)
@@ -51,17 +50,17 @@ require("mason-lspconfig").setup({
 })
 
 -- languge servers
-require('lspconfig').lua_ls.setup({})
-require('lspconfig').bashls.setup({})
-require('lspconfig').ts_ls.setup({})
--- require('lspconfig').eslint.setup({})
-require('lspconfig').clangd.setup({})
-require('lspconfig').marksman.setup({})
-require('lspconfig').docker_compose_language_service.setup({})
-require('lspconfig').dockerls.setup({})
-require('lspconfig').yamlls.setup({})
+vim.lsp.config('lua_ls', {})
+vim.lsp.config('bashls', {})
+vim.lsp.config('ts_ls', {})
+-- vim.lsp.config('eslint', {})
+vim.lsp.config('clangd', {})
+vim.lsp.config('marksman', {})
+vim.lsp.config('docker_compose_language_service', {})
+vim.lsp.config('dockerls', {})
+vim.lsp.config('yamlls', {})
 
-require("lspconfig").rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
   -- cmd = { "rust_analyzer" },  -- use light (from mason)
   cmd = { "/usr/bin/rust-analyzer" }, -- use pacman-installed binary (install in rust toolchain)
   on_attach = function(client, bufnr)
@@ -69,11 +68,11 @@ require("lspconfig").rust_analyzer.setup({
   end,
 })
 
-require("lspconfig").gopls.setup({})
+vim.lsp.config('gopls', {})
 
 
 local pid = vim.fn.getpid()
-require("lspconfig").omnisharp.setup({
+vim.lsp.config('omnisharp', {
   cmd = {
     vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp", -- capital O
     "--languageserver",

@@ -6,5 +6,7 @@ require("config")
 vim.opt.backspace = { "indent", "eol", "start" }
 
 vim.g.netrw_bufsettings = 'noma nomod nobl nowrap ro'
-vim.o.termguicolors = true
+vim.g.termguicolors = true
 vim.g.netrw_banner = 0
+
+vim.cmd.packadd('cfilter')
