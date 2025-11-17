@@ -18,9 +18,11 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup Lazy.nvim
 require("lazy").setup({
   -- colorscheme
-  { "rose-pine/neovim",        name = "rose-pine", opts = { transparent = true } },
+  { "rose-pine/neovim", name = "rose-pine", opts = { transparent = true } },
   { "LuRsT/austere.vim" },
   { "kdheepak/monochrome.nvim" },
+  { "vague-theme/vague.nvim" },
+  { "webhooked/kanso.nvim" },
 
   -------------------------------------------------------------------------------------
 
@@ -40,26 +42,13 @@ require("lazy").setup({
 
   -------------------------------------------------------------------------------------
 
-  -- harpoon
-  -- {
-  --     "ThePrimeagen/harpoon",
-  --     branch = "harpoon2",
-  --     dependencies = { "nvim-lua/plenary.nvim" }
-  -- },
-
-  -------------------------------------------------------------------------------------
-
   -- undo tree
-  {
-    'mbbill/undotree',
-  },
+  { 'mbbill/undotree' },
 
   -------------------------------------------------------------------------------------
 
   -- git integration
-  {
-    'tpope/vim-fugitive',
-  },
+  { 'tpope/vim-fugitive' },
 
   -------------------------------------------------------------------------------------
 
@@ -90,9 +79,7 @@ require("lazy").setup({
   -------------------------------------------------------------------------------------
 
   -- linter
-  {
-    'mfussenegger/nvim-lint',
-  },
+  { 'mfussenegger/nvim-lint' },
 
   -------------------------------------------------------------------------------------
 
