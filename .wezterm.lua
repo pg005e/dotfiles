@@ -1,7 +1,5 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- This table will hold the configuration.
 local config = {}
 
 if wezterm.config_builder then
@@ -11,11 +9,9 @@ end
 local act = wezterm.action
 local opacity_toggle = false
 
--- general configurations
 config = {
   automatically_reload_config = true,
   enable_tab_bar = false,
-  -- tab_bar_at_bottom = true,
   show_new_tab_button_in_tab_bar = false,
   window_close_confirmation = "AlwaysPrompt",
   window_decorations = "RESIZE", -- disable the title bar but enable the resizable border
@@ -26,18 +22,10 @@ config = {
   font_size = 28,
   detect_password_input = true,
   tab_and_split_indices_are_zero_based = true,
-  -- use_fancy_tab_bar = false,
-  -- tab_max_width = 8,
   window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
   adjust_window_size_when_changing_font_size = true,
 }
 
--- text on right-most side of tab line (workspace name)
-wezterm.on("update-right-status", function(window, pane)
-  window:set_right_status(window:active_workspace())
-end)
-
--- toggle opacity
 wezterm.on('toggle-opacity', function(window, _)
   opacity_toggle = not opacity_toggle
   local opacity = opacity_toggle and 0.8 or 1.0 -- Adjust opacity levels here
@@ -46,42 +34,13 @@ wezterm.on('toggle-opacity', function(window, _)
   })
 end)
 
-config.unix_domains = {
-  {
-    name = 'unix',
-  },
-}
-
--- map the leader key
 config.leader = {
   key = "0",
   mods = "CTRL",
   timeout_milliseconds = 1000,
 }
 
--- mapping custom keybindings for window pane navigation
 config.keys = {
-  ------------------------------------------------ PANE SPLITING ------------------------------------------------
-  -- -- This will create a new split and run your default program inside it
-  -- { key = "'", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-  -- { key = ";", mods = "LEADER", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-  --
-  -- ------------------------------------------------ PANE NAVIGATION ------------------------------------------------
-  -- -- adjust pane size
-  -- { key = "h", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 1 }) },
-  -- { key = "j", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 1 }) },
-  -- { key = "k", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 1 }) },
-  -- { key = "l", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 1 }) },
-  --
-  -- -- select active pane
-  -- { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
-  -- { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
-  -- { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
-  -- { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-  --
-  --  -- pane zoom
-  -- { key = "0", mods = "ALT", action = act.TogglePaneZoomState },
-  --
   ------------------------------------------------ TAB CONFIGURATION ------------------------------------------------
   -- Rename the current tab
   {
@@ -116,7 +75,7 @@ config.keys = {
   ------------------------------------------------ REBIND ------------------------------------------------
   -- Command Palette
   { key = "P", mods = "CTRL | SHIFT", action = act.DisableDefaultAssignment }, -- unbind
-  { key = "1", mods = "CTRL",         action = act.ActivateCommandPalette },   -- unbind
+  { key = "1", mods = "CTRL",         action = act.ActivateCommandPalette },   -- rebind
 
   -- Copy Mode
   { key = "[", mods = "CTRL",         action = act.ActivateCopyMode }, -- unbind
@@ -125,5 +84,4 @@ config.keys = {
   { key = "o", mods = "LEADER",       action = act.EmitEvent 'toggle-opacity' },
 }
 
--- and finally, return the configuration to wezterm
 return config

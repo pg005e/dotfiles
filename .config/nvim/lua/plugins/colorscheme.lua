@@ -56,11 +56,8 @@ require("rose-pine").setup({
   },
 
   highlight_groups = {
-    -- Comment = { fg = "foam" },
-    -- VertSplit = { fg = "muted", bg = "rose" },
     StatusLine = { fg = "#B46B63" },
     Visual = { fg = "surface", bg = "gold", inherit = false },
-    -- Normal = { bg = "#191712" },
     NormalNC = { bg = "#191712" }
   },
 
