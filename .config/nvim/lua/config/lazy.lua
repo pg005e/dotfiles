@@ -111,6 +111,11 @@ require("lazy").setup({
       maxKeys = 4,
       position = "top-right",
     }
-  }
+  },
+
+  -------------------------------------------------------------------------------------
+
+  -- venn diagrams
+  { "jbyuki/venn.nvim" },
 
 })
