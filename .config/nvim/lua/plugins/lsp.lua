@@ -52,7 +52,13 @@ require("mason-lspconfig").setup({
 -- languge servers
 vim.lsp.config('lua_ls', {})
 vim.lsp.config('bashls', {})
-vim.lsp.config('ts_ls', {})
+vim.lsp.config('ts_ls', {
+  init_options = {
+    preferences = {
+      quoteStyle = "single",
+    },
+  },
+})
 -- vim.lsp.config('eslint', {})
 vim.lsp.config('clangd', {})
 vim.lsp.config('marksman', {})
