@@ -18,7 +18,7 @@ require('kanso').setup({
     },
     overrides = function(colors) -- add/modify highlights
         return {
-          Visual = { fg="#090e13", bg="#dca561" }
+          Visual = { fg="#090e13", bg="#dca561" },
         }
     end,
     background = {               -- map the value of 'background' option to a theme

@@ -14,6 +14,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+keymap.set("n", "<leader>c", ":lcd %:p:h", { desc="change dir of current window to current active buffer directory" })
+
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("c", "<C-BS>", "<C-w>")
 keymap.set("i", "<C-H>", "<C-w>")
