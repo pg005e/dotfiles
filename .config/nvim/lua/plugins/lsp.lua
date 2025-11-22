@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd('lspattach', {
 })
 
 -- mason
-require("mason").setup()
+require("mason").setup({ ensure_installed = { "prettier" } })
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
@@ -52,13 +52,7 @@ require("mason-lspconfig").setup({
 -- languge servers
 vim.lsp.config('lua_ls', {})
 vim.lsp.config('bashls', {})
-vim.lsp.config('ts_ls', {
-  init_options = {
-    preferences = {
-      quoteStyle = "single",
-    },
-  },
-})
+vim.lsp.config('ts_ls', {})
 -- vim.lsp.config('eslint', {})
 vim.lsp.config('clangd', {})
 vim.lsp.config('marksman', {})

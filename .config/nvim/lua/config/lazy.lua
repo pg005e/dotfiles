@@ -118,4 +118,9 @@ require("lazy").setup({
   -- venn diagrams
   { "jbyuki/venn.nvim" },
 
+  -------------------------------------------------------------------------------------
+
+  -- formatter
+  { "stevearc/conform.nvim" },
+
 })

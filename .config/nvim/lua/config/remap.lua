@@ -14,7 +14,28 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-keymap.set("n", "<leader>c", ":lcd %:p:h", { desc="change dir of current window to current active buffer directory" })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  callback = function()
+    keymap.set("n", "gd", "<C-w><C-]>", { buffer = true })
+  end
+})
+
+keymap.set("n", "<leader>l", function()
+  local currentLine = vim.api.nvim_get_current_line()
+  local lineLength = vim.fn.strcharlen(currentLine)
+  local lineNum = vim.fn.line(".")
+  local colPos = vim.fn.virtcol(".")
+  vim.fn.cursor(lineNum + 1, colPos)
+  local command = string.format("normal! %di-", lineLength + 1)
+  vim.fn.execute(command)
+  vim.fn.execute("normal! i\r")
+  vim.fn.execute("normal! el\"_d0")
+end)
+
+keymap.set("n", "<leader>c", ":lcd %:p:h", {
+  desc = "change dir of current window to current active buffer directory"
+})
 
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("c", "<C-BS>", "<C-w>")
@@ -22,7 +43,6 @@ keymap.set("i", "<C-H>", "<C-w>")
 keymap.set("c", "<C-H>", "<C-w>")
 
 keymap.set("n", "<leader>pw", vim.cmd.Ex)
-keymap.set("n", "<leader>f", vim.lsp.buf.format)
 keymap.set("n", "<leader>r", vim.cmd.registers)
 keymap.set("n", "<leader>m", vim.cmd.marks)
 
