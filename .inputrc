@@ -3,4 +3,6 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
 "\C-h": unix-word-rubout
+"\C-l": backward-delete-char
+"\C-k": clear-screen
 

@@ -27,7 +27,7 @@ keymap.set("n", "<leader>l", function()
   local lineNum = vim.fn.line(".")
   local colPos = vim.fn.virtcol(".")
   vim.fn.cursor(lineNum + 1, colPos)
-  local command = string.format("normal! %di-", lineLength + 1)
+  local command = string.format("normal! %di-", lineLength + 2)
   vim.fn.execute(command)
   vim.fn.execute("normal! i\r")
   vim.fn.execute("normal! el\"_d0")
@@ -39,6 +39,8 @@ keymap.set("n", "<leader>c", ":lcd %:p:h", {
 
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("c", "<C-BS>", "<C-w>")
+keymap.set("i", "<C-l>", "<C-h>")
+keymap.set("c", "<C-l>", "<C-h>")
 keymap.set("i", "<C-H>", "<C-w>")
 keymap.set("c", "<C-H>", "<C-w>")
 
