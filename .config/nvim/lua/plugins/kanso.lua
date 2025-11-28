@@ -10,7 +10,7 @@ require('kanso').setup({
     statementStyle = {},
     typeStyle = {},
     transparent = true,         -- do not set background color
-    dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
+    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
     terminalColors = true,       -- define vim.g.terminal_color_{0,17}
     colors = {                   -- add/modify theme and palette colors
         palette = {},
@@ -19,6 +19,7 @@ require('kanso').setup({
     overrides = function(colors) -- add/modify highlights
         return {
           Visual = { fg="#090e13", bg="#dca561" },
+          StatusLine = { fg="#c48282"},
         }
     end,
     background = {               -- map the value of 'background' option to a theme
