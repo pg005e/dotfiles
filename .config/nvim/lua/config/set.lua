@@ -5,6 +5,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_set_hl(0, "NeoCodeiumSuggestion", { link = "StatusLineNC" })
+
 vim.opt.nu = true
 vim.opt.rnu = true
 
@@ -19,7 +21,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 69
+vim.opt.scrolloff = 20
 
 vim.opt.wrap = false
 

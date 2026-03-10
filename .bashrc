@@ -134,6 +134,9 @@ alias wezterm="flatpak run org.wezfurlong.wezterm "
 alias tma="tmux a"
 alias tm="tmux"
 alias ox="sudo oxker"
+alias tw="task +twork"
+alias tp="task +tpersonal"
+alias e="nvim"
 
 # defaults
 export EDITOR="nvim"
@@ -173,3 +176,7 @@ export PATH=$PATH:/usr/local/go/bin
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+# java
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH=$JAVA_HOME/bin:$PATH

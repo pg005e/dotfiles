@@ -44,7 +44,9 @@ require("mason-lspconfig").setup({
     -- "eslint",
     "docker_compose_language_service",
     "dockerls",
-    "gopls"
+    "gopls",
+    "jdtls",
+    "tinymist"
   },
   automatic_installation = false,
 })
@@ -59,6 +61,11 @@ vim.lsp.config('marksman', {})
 vim.lsp.config('docker_compose_language_service', {})
 vim.lsp.config('dockerls', {})
 vim.lsp.config('yamlls', {})
+vim.lsp.enable('jdtls')
+vim.lsp.config('tinymist', {
+  cmd = { 'tinymist' },
+  file = { 'typst' },
+})
 
 vim.lsp.config('rust_analyzer', {
   -- cmd = { "rust_analyzer" },  -- use light (from mason)

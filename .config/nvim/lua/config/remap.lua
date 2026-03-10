@@ -37,6 +37,9 @@ keymap.set("n", "<leader>c", ":lcd %:p:h", {
   desc = "change dir of current window to current active buffer directory"
 })
 
+keymap.set("n", "<leader>z", ":Twilight<CR>",
+  { desc = "toggle twilight (plugin for dimming the inactive parts of the buffer)" })
+
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("c", "<C-BS>", "<C-w>")
 keymap.set("i", "<C-l>", "<C-h>")

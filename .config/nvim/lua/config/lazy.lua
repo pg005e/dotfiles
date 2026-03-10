@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup Lazy.nvim
 require("lazy").setup({
   -- colorscheme
-  { "rose-pine/neovim", name = "rose-pine", opts = { transparent = true } },
+  { "rose-pine/neovim",        name = "rose-pine", opts = { transparent = true } },
   { "LuRsT/austere.vim" },
   { "kdheepak/monochrome.nvim" },
   { "vague-theme/vague.nvim" },
@@ -122,5 +122,28 @@ require("lazy").setup({
 
   -- formatter
   { "stevearc/conform.nvim" },
+
+  -------------------------------------------------------------------------------------
+
+  -- java
+  { "mfussenegger/nvim-jdtls" },
+
+  -------------------------------------------------------------------------------------
+
+  -- zen/dim
+  { "folke/twilight.nvim" },
+
+  -------------------------------------------------------------------------------------
+
+  -- AI autocomplete
+  {
+    "monkoose/neocodeium",
+    event = "VeryLazy",
+    config = function()
+      local neocodeium = require("neocodeium")
+      neocodeium.setup()
+      vim.keymap.set("i", "<A-f>", neocodeium.accept)
+    end,
+  }
 
 })

@@ -1,32 +1,40 @@
 -- Default options:
 require('kanso').setup({
-    bold = true,                 -- enable bold fonts
-    italics = true,             -- enable italics
-    compile = false,             -- enable compiling the colorscheme
-    undercurl = true,            -- enable undercurls
-    commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { italic = true},
-    statementStyle = {},
-    typeStyle = {},
-    transparent = true,         -- do not set background color
-    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-    terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-    colors = {                   -- add/modify theme and palette colors
-        palette = {},
-        theme = { zen = {}, pearl = {}, ink = {}, all = {} },
+  bold = true,      -- enable bold fonts
+  italics = true,   -- enable italics
+  compile = false,  -- enable compiling the colorscheme
+  undercurl = true, -- enable undercurls
+  commentStyle = { italic = true },
+  functionStyle = {},
+  keywordStyle = { italic = true },
+  statementStyle = {},
+  typeStyle = {},
+  transparent = true,    -- do not set background color
+  dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
+  terminalColors = true, -- define vim.g.terminal_color_{0,17}
+  colors = {             -- add/modify theme and palette colors
+    palette = {},
+    theme = {
+      pearl = {},
+      zen = {},
+      ink = {},
+      all = {}
     },
-    overrides = function(colors) -- add/modify highlights
-        return {
-          Visual = { fg="#090e13", bg="#dca561" },
-          StatusLine = { fg="#c48282"},
-        }
-    end,
-    background = {               -- map the value of 'background' option to a theme
-        dark = "ink",           -- try "zen", "mist" or "pearl" !
-        light = "ink"           -- try "zen", "mist" or "pearl" !
-    },
-    foreground = "default",      -- "default" or "saturated" (can also be a table like background)
+  },
+  overrides = function(colors) -- add/modify highlights
+    return {
+      IncSearch = { fg = "#090e13", bg = "#dca561" },
+      Visual = { fg = "#090e13", bg = "#dca561" },
+      -- StatusLine = { fg = "#b6927b" },
+      NormalFloat = { bg = "#2d4f67", fg = "#c5c9c7" },
+      FloatBorder = { bg = "#dca561" },
+    }
+  end,
+  background = {          -- map the value of 'background' option to a theme
+    dark = "ink",         -- try "zen", "mist" or "pearl" !
+    light = "ink"         -- try "zen", "mist" or "pearl" !
+  },
+  foreground = "default", -- "default" or "saturated" (can also be a table like background)
 })
 
 -- setup must be called before loading

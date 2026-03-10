@@ -9,16 +9,29 @@ end
 local act = wezterm.action
 local opacity_toggle = false
 
+local schemes = wezterm.color.get_builtin_schemes()
+local tomorrow = schemes['Tomorrow Night (Gogh)']
+-- local tomorrow = schemes['Tomorrow (Gogh)']
+
+-- light
+-- local s = schemes['Grayscale Light (base16)']
+
+-- -- dark
+local s = schemes['Grayscale Dark (base16)']
+
+s.ansi = tomorrow.ansi
+s.brights = tomorrow.brights
+
 config = {
   automatically_reload_config = true,
   enable_tab_bar = false,
   show_new_tab_button_in_tab_bar = false,
   window_close_confirmation = "AlwaysPrompt",
   window_decorations = "RESIZE", -- disable the title bar but enable the resizable border
-  -- color_scheme = 'Tomorrow (dark) (terminal.sexy)',
-  color_scheme = 'Tomorrow Night (Gogh)',
-  -- color_scheme = "tender (base16)",
-  -- color_scheme = "rose-pine",
+  color_schemes = {
+    ['Grayscale Dark (base16)'] = s, -- override in place
+  },
+  color_scheme = 'Grayscale Dark (base16)',
   font = wezterm.font("JetBrainsMono Nerd Font Mono"),
   font_size = 28,
   detect_password_input = true,
