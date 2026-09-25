@@ -49,6 +49,15 @@ require("mason-lspconfig").setup({
     "tinymist"
   },
   automatic_installation = false,
+  -- mason-lspconfig v2 auto-enables every *installed* mason server, so
+  -- commenting out the config above isn't enough — eslint-lsp is still
+  -- installed and gets enabled. Explicitly exclude it here.
+  -- jdtls is driven by the nvim-jdtls plugin (see lua/config/java.lua), not
+  -- by nvim-lspconfig — exclude it so mason-lspconfig doesn't start the
+  -- bundled lspconfig jdtls (which crashes on Neovim < 0.11.3).
+  automatic_enable = {
+    exclude = { "eslint", "jdtls" },
+  },
 })
 
 -- languge servers
@@ -61,11 +70,13 @@ vim.lsp.config('marksman', {})
 vim.lsp.config('docker_compose_language_service', {})
 vim.lsp.config('dockerls', {})
 vim.lsp.config('yamlls', {})
-vim.lsp.enable('jdtls')
+-- jdtls is set up via nvim-jdtls in lua/config/java.lua, not here.
+vim.lsp.config('jdtls', {})
 vim.lsp.config('tinymist', {
   cmd = { 'tinymist' },
   file = { 'typst' },
 })
+vim.lsp.config('pyright', {})
 
 vim.lsp.config('rust_analyzer', {
   -- cmd = { "rust_analyzer" },  -- use light (from mason)

@@ -1,5 +1,10 @@
 -- NeoCodeium Configuration
-require("neocodeium").setup({
+local neocodeium = require("neocodeium")
+
+-- accept the current suggestion
+vim.keymap.set("i", "<A-f>", neocodeium.accept)
+
+neocodeium.setup({
   -- If `false`, then would not start windsurf server (disabled state)
   -- You can manually enable it at runtime with `:NeoCodeium enable`
   enabled = true,

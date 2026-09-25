@@ -2,14 +2,15 @@ local conform = require("conform")
 
 conform.setup({
   formatters_by_ft = {
-    javascript = { "prettier" },
-    typescript = { "prettier" },
-    javascriptreact = { "prettier" },
-    typescriptreact = { "prettier" },
+    -- javascript = { "prettier" },
+    -- typescript = { "prettier" },
+    -- javascriptreact = { "prettier" },
+    -- typescriptreact = { "prettier" },
     json = { "prettier" },
     html = { "prettier" },
     css = { "prettier" },
     markdown = { "prettier" },
+    python = { "black" }
   },
 })
 
@@ -19,3 +20,7 @@ vim.keymap.set('n', '<leader>f', function()
     async = false,
   })
 end, { desc = "Format with conform" })
+
+-- vim.keymap.set('n', '<leader>f', function()
+--   vim.lsp.buf.format({ async = false })
+-- end)

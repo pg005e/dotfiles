@@ -19,12 +19,12 @@ esac
 
 if [ "$pkg_mngr" == "pacman" ]; then
   # install from package repositories
-  sudo pacman -S git stow neovim starship flatpak tmux
+  sudo pacman -S git stow neovim flatpak tmux
 fi
 
 if [ "$pkg_mngr" == "apt" ]; then
   # install from package repositories
-  sudo apt install git stow starship flatpak tmux
+  sudo apt install git stow flatpak tmux
 
   # build neovim from scratch for latest version (apt has outdated versions)
   sudo apt install ninja-build gettext cmake curl build-essential &&

@@ -30,9 +30,9 @@ require('kanso').setup({
       FloatBorder = { bg = "#dca561" },
     }
   end,
-  background = {          -- map the value of 'background' option to a theme
-    dark = "ink",         -- try "zen", "mist" or "pearl" !
-    light = "ink"         -- try "zen", "mist" or "pearl" !
+  background = {
+    dark = "zen",
+    light = "zen",
   },
   foreground = "default", -- "default" or "saturated" (can also be a table like background)
 })

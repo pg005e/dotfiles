@@ -1,10 +1,6 @@
 local wezterm = require("wezterm")
 
-local config = {}
-
-if wezterm.config_builder then
-  config = wezterm.config_builder()
-end
+local config = wezterm.config_builder()
 
 local act = wezterm.action
 local opacity_toggle = false

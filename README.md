@@ -14,9 +14,6 @@ Ensure you have the following installed on your system:
 #### Wezterm
     flatpak install flathub org.wezfurlong.wezterm
 
-#### Starship
-    sudo pacman -S starship
-
 #### Neovim
     sudo pacman -S neovim
 

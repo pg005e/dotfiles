@@ -44,23 +44,58 @@ case ${TERM} in
 		;;
 esac
 
-use_color=true
-
-# Set colorful PS1 only on colorful terminals.
-# dircolors --print-database uses its own built-in database
-# instead of using /etc/DIR_COLORS.  Try to use the external file
-# first to take advantage of user additions.  Use internal bash
-# globbing instead of external grep binary.
-PS1='\n\u@\h:\w\$ '
-safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
+# --- color capability detection (now actually meaningful) ---
+use_color=false
+safe_term=${TERM//[^[:alnum:]]/?}
 match_lhs=""
 [[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
 [[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
-[[ -z ${match_lhs}    ]] \
-	&& type -P dircolors >/dev/null \
-	&& match_lhs=$(dircolors --print-database)
+[[ -z ${match_lhs} ]] && type -P dircolors >/dev/null \
+    && match_lhs=$(dircolors --print-database)
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
+# --- git prompt ---
+[[ -r ~/.git-prompt.sh ]] && . ~/.git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=1        # * unstaged, + staged
+GIT_PS1_SHOWSTASHSTATE=1        # $
+GIT_PS1_SHOWUNTRACKEDFILES=1    # %
+GIT_PS1_SHOWUPSTREAM="verbose"  # u+2-1 ahead/behind
+GIT_PS1_SHOWCONFLICTSTATE=yes   # |CONFLICT  (must be literally "yes")
+GIT_PS1_STATESEPARATOR=" "
+GIT_PS1_SHOWCOLORHINTS=1        # pcmode only
+GIT_PS1_HIDE_IF_PWD_IGNORED=1
+
+__prompt() {
+    local ec=$?                       # must be the very first line
+    local pre="" post=""
+
+    pre="\n"
+    # exit status, only when nonzero
+    if (( ec != 0 )); then
+        pre+="\[\e[31m\]${ec}\[\e[0m\] "
+    fi
+
+    # background/stopped jobs, only when present
+    local nj=${#___jobs[@]}
+    if (( nj > 0 )); then
+        pre+="\[\e[33m\][${nj}]+\[\e[0m\] "
+    fi
+
+    pre+="\[\e[1;32m\][\u@\h]\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]"
+    post="\n\$ "
+
+    if type -t __git_ps1 >/dev/null; then
+        __git_ps1 "$pre" "$post" " (%s)"
+    else
+        PS1="$pre$post"
+    fi
+}
+
+# jobs must be counted in the parent shell, not a subshell
+__count_jobs() { mapfile -t ___jobs < <(jobs -p); }
+
+PROMPT_COMMAND='__count_jobs; __prompt'
 if ${use_color} ; then
 	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
 	if type -P dircolors >/dev/null ; then
@@ -141,10 +176,6 @@ alias e="nvim"
 # defaults
 export EDITOR="nvim"
 
-# starship as prompt
-eval "$(starship init bash)"
-
-
 # nvm completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -171,6 +202,7 @@ export PATH=/home/prayush/.opencode/bin:$PATH
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # Enable bash-completion if available
 if [ -f /etc/bash_completion ]; then
@@ -180,3 +212,14 @@ fi
 # java
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/prayush/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+
+# # openclaw
+# export PATH="$(npm prefix -g)/bin:$PATH"

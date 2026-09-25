@@ -49,6 +49,7 @@ require("lazy").setup({
 
   -- git integration
   { 'tpope/vim-fugitive' },
+  { 'lewis6991/gitsigns.nvim' },
 
   -------------------------------------------------------------------------------------
 
@@ -126,7 +127,11 @@ require("lazy").setup({
   -------------------------------------------------------------------------------------
 
   -- java
-  { "mfussenegger/nvim-jdtls" },
+  {
+    "mfussenegger/nvim-jdtls",
+    dependencies = { "nvim-lspconfig" },
+    ft = "java",
+  },
 
   -------------------------------------------------------------------------------------
 
@@ -135,15 +140,10 @@ require("lazy").setup({
 
   -------------------------------------------------------------------------------------
 
-  -- AI autocomplete
+  -- AI autocomplete (configured in lua/plugins/neocodeium.lua)
   {
     "monkoose/neocodeium",
     event = "VeryLazy",
-    config = function()
-      local neocodeium = require("neocodeium")
-      neocodeium.setup()
-      vim.keymap.set("i", "<A-f>", neocodeium.accept)
-    end,
   }
 
 })
